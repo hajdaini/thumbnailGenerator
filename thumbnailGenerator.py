@@ -8,7 +8,7 @@ parser = argparse.ArgumentParser(description='Create thumbnail automatically')
 parser.add_argument('--text', '-t', help='text to display in your image')
 parser.add_argument('--size', '-s', type=int, help='size of the text that will be display')
 parser.add_argument('--offsetY', '-y', type=int, help='Offset in y position of the text')
-parser.add_argument('--file', '-f', help='Offset in y position of the text')
+parser.add_argument('--file', '-f', help='Select text line by line from a file')
 args = parser.parse_args() 
 
 def addTitle(background, text, fontSize, textColor, borderColor, offset = 0):
