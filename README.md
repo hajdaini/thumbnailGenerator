@@ -23,6 +23,7 @@ Usage
 ```shell
 thumbnailGenerator.py [-h] [--text TEXT] [--size SIZE]
                              [--offsetY OFFSETY] [--file FILE]
+```
 
 Arguments Description
 --------------
@@ -33,3 +34,5 @@ Arguments Description
 | `size`        | int    | size of the text that will be display           |   false   |
 | `offsetY`     | int    | Offset in y position of the text                |   false   |
 | `file`        | string | Select text line by line from a file            |   false   |
+
+
