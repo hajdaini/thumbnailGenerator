@@ -94,7 +94,7 @@ def addCredit(background):
     bW, bH = background.size
     credit = "devopssec.fr"
     draw = ImageDraw.Draw(background)
-    font = ImageFont.truetype("./fonts/Circus Of Innocents/Circus Of Innocents.ttf", 50)
+    font = ImageFont.truetype("./fonts/Circus Of Innocents.ttf", 50)
     tW, tH = font.getsize(credit)
     offset = 12
     xPos, yPos = (bW - tW - offset, bH - tH - offset)
@@ -158,6 +158,7 @@ def gradientBackground(background, innerColor, outerColor):
             #Place the pixel        
             background.putpixel((x, y), (int(r), int(g), int(b)))
 
+textList, textSave = [], []
 
 if args.file:
     with open(args.file) as f:
@@ -165,9 +166,8 @@ if args.file:
         textSave = textList
 else:
     if args.text:
-        textList = (args.text)
+        textList.append(args.text)
         textSave = textList
-
     else:
         textList =(
             "My beautiful text 1",
@@ -188,8 +188,8 @@ def cleanText(text):
 
 def createBgImage(bgColor, textColor, borderColor, text):
     background = Image.new('RGBA',(1200, 627) , bgColor) # linkedin recommended size
-    mascot = Image.open("mascots/docker-sad.png", "r").convert("RGBA")
-    bgImage = Image.open("bg/bg-gray.jpg", "r").convert("RGBA")
+    mascot = Image.open("mascots/ansible.png", "r").convert("RGBA")
+    bgImage = Image.open("bg/bg-red.jpg", "r").convert("RGBA")
     addBackgroundImage(background, bgImage, 1)
     # addFilter(background)
     background = background.filter((ImageFilter.GaussianBlur (radius=5)))
@@ -200,7 +200,7 @@ def createBgImage(bgColor, textColor, borderColor, text):
         addTitle(background, text, args.size, textColor, borderColor)
     else:
         addTitle(background, text, TEXT_SIZE, textColor, borderColor)
-    addMascot(background, mascot, 0.6) # k8s
+    addMascot(background, mascot, 1) # k8s
     addCredit(background)
     addLogo(background)
     return background
@@ -226,4 +226,4 @@ for idx, text in enumerate(textList):
     background = createBgImage(bgColor, textColor, borderColor, text)
     saveImage(background, textSave[idx], True)
 
-
+    
